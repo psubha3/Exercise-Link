@@ -1,2 +1,2 @@
-robot /opt/typicode/robot/tc01_get_specific_user.robot
-
+Date=$(date +'%Y_%m_%d_%H_%M_%S')
+robot --outputdir $RESULT_PATH/Result_$Date -T /opt/typicode/robot

@@ -11,6 +11,21 @@ Eliminate the “it works on my machine” problem once and for all. One of the 
 * Installation is harmonized over all team members and the CI environment in one central place.
 * Updating versions of individual components can be easily tried out using a separate Docker image.
 
+Benefits of Docker:
+https://dzone.com/articles/top-10-benefits-of-using-docker
+
+Command to build with Dockerfile(Execute command from where the dockerfile is present):
+=======================================================================================
+$ docker build -t typicode_tc:1.0 .
+
+Export is mandatory to get the output of testrun
+$ export RESULT_PATH=<folder where test result is created >
+eg:
+  $ export RESULT_PATH=/opt/results/
+
+Command to run the container:
+=============================
+$ docker run -d --name typicode2 -e RESULT_PATH=$RESULT_PATH -v /tmp:$RESULT_PATH typicode_tc:1.0
 
 Usefult link for Robotframework:
 https://robotframework.org/

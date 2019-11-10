@@ -29,7 +29,15 @@ $ docker run -d --name typicode2 -e RESULT_PATH=$RESULT_PATH -v /tmp:$RESULT_PAT
 
 Command to run the container by passing base_url:
 =================================================
-$ docker run -d --name typicode2 -e BASE_URL='https://jsonplaceholder.typicode.com -e RESULT_PATH=$RESULT_PATH -v /tmp:$RESULT_PATH typicode_tc:1.0
+$ docker run -d --name typicode2 -e search_username=samantha -e RESULT_PATH=$RESULT_PATH -v /tmp:$RESULT_PATH typicode_tc:1.0
+
+Check execution logs:
+=====================
+$ docker logs -f <container name or id>
+
+Container name/id can be obtained using docker ps -a
+
+Also in your host machine the logs will be available in /tmp (we have mounted the container value to this folder in host)
 
 Useful link for Robotframework:
 https://robotframework.org/

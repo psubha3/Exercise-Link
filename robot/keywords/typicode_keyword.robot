@@ -12,8 +12,8 @@ Create Session For Typicode
     Create Session    typicodesession    ${BASE_URL}    headers=${headers}    disable_warnings=1
 
 Get Users with query string
-    [Arguments]    ${querystring}    ${verify_string}
-    ${res}=    RequestsLibrary.Get Request    typicodesession    /users?${querystring}=${verify_string}
+    [Arguments]    ${get_users_uri}    ${get_users_querystring}    ${verify_string}
+    ${res}=    RequestsLibrary.Get Request    typicodesession    ${get_users_uri}?${get_users_querystring}=${verify_string}
     log    ${res.json()}
     Should Be Equal As Strings    ${res.status_code}    200
     [Return]    ${res.json()}
@@ -26,8 +26,8 @@ Validate response with given query
     [Return]    ${output}
 
 Get posts with query string
-    [Arguments]    ${querystring}    ${verify_string}
-    ${res}=    RequestsLibrary.Get Request    typicodesession    /posts?${querystring}=${verify_string}
+    [Arguments]    ${get_posts_uri}    ${get_posts_querystring}    ${verify_string}
+    ${res}=    RequestsLibrary.Get Request    typicodesession    ${get_posts_uri}?${get_posts_querystring}=${verify_string}
     log    ${res.json()}
     Should Be Equal As Strings    ${res.status_code}    200
     [Return]    ${res.json()}
@@ -45,8 +45,8 @@ Validate list of email id
     [Return]    ${MyDictionary}
 
 Get comments with query string
-    [Arguments]    ${querystring}    ${verify_string}
-    ${res}=    RequestsLibrary.Get Request    typicodesession    /comments?${querystring}=${verify_string}
+    [Arguments]    ${get_comments_uri}    ${get_comments_querystring}    ${verify_string}
+    ${res}=    RequestsLibrary.Get Request    typicodesession    ${get_comments_uri}? ${get_comments_querystring} |=${verify_string}
     log    ${res.json()}
     Should Be Equal As Strings    ${res.status_code}    200
     [Return]    ${res.json()}

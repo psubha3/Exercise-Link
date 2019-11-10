@@ -1,1 +1,8 @@
 --variable BASE_URL:https://jsonplaceholder.typicode.com
+--variable get_users_uri:/users
+--variable get_users_querystring:username
+--variable get_posts_uri:/posts
+--variable get_posts_querystring:userId
+--variable get_comments_uri:/comments
+--variable get_comments_querystring:postId
+

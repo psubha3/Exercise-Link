@@ -10,8 +10,8 @@ Resource          ../keywords/typicode_keyword.robot
 verify and get userid of given user
     [Documentation]    Makes a GET api call for the specific user name provided
     [Tags]    sample    userapi
-    ${get_user_output}    Get Users with query string    ${get_users_uri}    ${get_users_querystring}    Samantha
-    ${validate_status}=    Validate response with given query    ${get_user_output}    $..username    Samantha
+    ${get_user_output}    Get Users with query string    ${get_users_uri}    ${get_users_querystring}    ${search_username}
+    ${validate_status}=    Validate response with given query    ${get_user_output}    $..username    ${search_username}
     ${user_id_output}=    Run Keyword If    ${validate_status}    Jsonpath    ${get_user_output}    $..id
     ...    ELSE    FAIL    There is mismatch in username received
     ${user_id}=    Set Variable    ${user_id_output[0]}

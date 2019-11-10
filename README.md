@@ -27,7 +27,11 @@ Command to run the container:
 =============================
 $ docker run -d --name typicode2 -e RESULT_PATH=$RESULT_PATH -v /tmp:$RESULT_PATH typicode_tc:1.0
 
-Usefult link for Robotframework:
+Command to run the container by passing base_url:
+=================================================
+$ docker run -d --name typicode2 -e BASE_URL='https://jsonplaceholder.typicode.com -e RESULT_PATH=$RESULT_PATH -v /tmp:$RESULT_PATH typicode_tc:1.0
+
+Useful link for Robotframework:
 https://robotframework.org/
 
 Useful links for jsonpath validation:

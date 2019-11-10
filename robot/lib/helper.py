@@ -1,3 +1,5 @@
+from validate_email import validate_email
+
 def validate_list_with_searchString(listitem, searchString):
     print("Length of list search: " + str(listitem.count(searchString)))
     print("Length of List: " + str(len(listitem)))
@@ -8,3 +10,6 @@ def validate_list_with_searchString(listitem, searchString):
        print("Not equal")
        return False
 
+def check_validate_email(email):
+    is_valid = validate_email(email)
+    return is_valid

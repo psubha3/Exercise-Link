@@ -3,6 +3,7 @@ Suite Setup       Create Session For Typicode    ${BASE_URL}
 Library           RequestsLibrary
 Library           Collections
 Library           jsonpath
+Library           ../lib/helper.py
 Resource          ../keywords/typicode_keyword.robot
 
 *** Test Cases ***
@@ -21,13 +22,14 @@ verify users post and get postid of given user
     [Tags]    sample    postapi
     ${get_post_output}=    Get posts with query string    userId    ${user_id}
     ${userId_list}    Validate response with given query    ${get_post_output}    $..userId    ${user_id}
-    ${post_id_list}=    Run Keyword If    ${userId_list}    Jsonpath    ${userId_list}    $..id
-    Set Suite Variable    ${post_id_list}
+    @{post_id_list}=    Run Keyword If    ${userId_list}    Jsonpath    ${get_post_output}    $..id
+    Set Suite Variable    @{post_id_list}
 
 verify user comment of given user
     [Documentation]    Makes a GET api call for the specific user name provided
     [Tags]    sample    commentsapi
-    ${get_post_output}=    Get posts with query string    userId    ${user_id}
-    ${userId_list}    Validate response with given query    ${get_post_output}    $..userId    ${user_id}
-    ${post_id_list}=    Run Keyword If    ${userId_list}    Jsonpath    ${userId_list}    $..id
-    Set Suite Variable    ${post_id_list}
+    : FOR    ${post_id}    IN    @{post_id_list}
+    \    ${get_comment_output}=    Get comments with query string    postId    ${post_id}
+    \    ${postid_verify_status}    Validate response with given query    ${get_comment_output}    $..postId    ${post_id}
+    \    @{email_id_list}=    Run Keyword If    ${postid_verify_status}    Jsonpath    ${get_comment_output}    $..email
+    \    ${response_Dictionary}=    Validate list of email id    @{email_id_list}

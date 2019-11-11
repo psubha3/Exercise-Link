@@ -3,3 +3,22 @@ Exiting robotframework has support for wiremock. And has many library support. A
 If we are ok to go with Licensed tool,
 we can go with Swagger - if the swagger api is provided, automatically test cases can be generated out.
 Or use postman to create testcase using given swagger api 
+
+Circle CI integration:
+======================
+Have not worked with circle CI. But knew the procedure that should be followed for CI/CD integration
+
+The steps currently we follow in Bamboo:
+1. Do a git clone of the repo
+2. Do a docker build using the command in the README file
+3. Do a docker save of the created image using
+         $ docker save -o <tar file name> <dockerrepository>:<dockertag>
+         eg:
+         $ docker save -o typicode.tar typicode_tc:1.0
+4. The created tar will be uploaded to bamboo server and be available to all.
+5. So anyone can download the tar (pre built image) and do docker load
+         $ docker load -i <tar file name> 
+         eg:
+         $ docker load -i typicode.tar
+6. Check the loaded image using "docker images" command
+7. Run the container with loaded docker image.

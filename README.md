@@ -14,6 +14,18 @@ Eliminate the “it works on my machine” problem once and for all. One of the 
 Benefits of Docker:
 https://dzone.com/articles/top-10-benefits-of-using-docker
 
+prerequisite:
+    Docker should be installed for the test case to be executed.
+
+Installing Docker:
+=================
+For Windows and Mac OS there are installers available (though you need to create an account on Docker Hub):
+• https://hub.docker.com/editions/community/docker-ce-desktop-windows
+• https://hub.docker.com/editions/community/docker-ce-desktop-mac
+
+For Linux it depends on the distribution. Instructions for the different distributions can be found in https://docs.docker.com/install/linux/docker-ce/centos.
+
+
 Command to build with Dockerfile(Execute command from where the dockerfile is present):
 =======================================================================================
 $ docker build -t typicode_tc:1.0 .

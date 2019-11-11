@@ -1,0 +1,5 @@
+Exiting robotframework has support for wiremock. And has many library support. And opensource. So choosed this framework.
+
+If we are ok to go with Licensed tool,
+we can go with Swagger - if the swagger api is provided, automatically test cases can be generated out.
+Or use postman to create testcase using given swagger api 

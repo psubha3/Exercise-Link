@@ -28,6 +28,12 @@ For Linux it depends on the distribution. Instructions for the different distrib
 
 Command to build with Dockerfile(Execute command from where the dockerfile is present):
 =======================================================================================
+## Clone this repository:
+
+$ git clone https://github.com/psubha3/Exercise-Link.git
+
+## Inside folder repo, run this command to build the image
+
 $ docker build -t typicode_tc:1.0 .
 
 Export is mandatory to get the output of testrun
